@@ -1,0 +1,39 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<meta charset="UTF-8">
+<div th:fragment="page"><!--定义用于被显示列表页包含-->
+<head>
+<style>
+.page-item {
+	padding: 1px 5px;
+	border: 1px solid 	#444444;
+	margin-left: 3px
+}
+
+.page-item.active {
+	//color: red;
+	border: 1px solid;
+	background-color:#5500FF;
+}
+span {
+	color: 	#000000;
+}
+</style>
+</head>
+	<div style="float: left" th:if="${pages>0}">
+		当前第<span th:text="${current}"></span>页,共<span
+			th:text="${pages}"></span>页,总记录数<span th:text="${total}"></span>
+	</div>
+	<div style="float: right" th:if="${pages>0}">
+		<a th:href="@{/emp/findAll?pageNum=1}" th:text="首页" th:if="${current>1}" th:class="page-item"></a>
+		<a th:href="@{'/emp/findAll?pageNum='+${current-1}}" th:text="上一页" th:class="page-item"
+			th:if="${current>1}"></a> 
+		<a th:href="@{'/emp/findAll?pageNum='+ ${i}}"
+			th:each="i :${#numbers.sequence(1, pages)}" th:text="${i}"
+			th:class="${current == i}? 'page-item active' :'page-item' "></a>
+		<a th:href="@{'/emp/findAll?pageNum='+${current+1}}" th:text="下一页" th:class="page-item"
+			th:if="${current<pages}"></a> <a
+			th:href="@{'/emp/findAll?pageNum='+${pages}}" th:text="尾页" th:class="page-item"
+			th:if="${current<pages}"></a>
+	</div>
+</div>
+</html>
