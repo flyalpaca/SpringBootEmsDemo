@@ -41,5 +41,9 @@ public class UserController {
 		}
 		return "redirect:/emp/findAll";
 	}
+	@RequestMapping("/reg")
+	public String regist(){
+		return "regist";
+	}
 }
 
