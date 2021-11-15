@@ -28,7 +28,17 @@
             </br>
             <a style="color:#ffffff" th:href="@{/emp/add}" class="btn btn-sm btn-info">添加一条</a>
             </br>
-            <!--button class="btn btn-sm btn-info" th:href="@{/emp/add}">添加</button-->
+            </br>
+            <div>
+                <form th:action="@{/emp/serch}" method="post" class="bs-example bs-example-form" role="form">
+                    <div class="input-group">
+                        <input type="text" class="form-control" name="key" placeholder="搜索框">
+                        <span class="input-group-btn">
+                        <button class="btn btn-primary" type="submit">搜索</button>
+                    </span>
+                    </div>
+                </form>
+            </div>
             <br>
             <table class="table">
                 <tr class="table_header">
@@ -62,25 +72,24 @@
                         20
                     </td>
                     <td>
-                        <a style="color:#FFFFFF" th:href="@{/emp/delete/}+${e.eid}" class="btn btn-sm btn-danger deleteBtn">删除</a>&nbsp;
-                        <a style="color:#ffffff" th:href="@{/emp/toupdate/}+${e.eid}" class="btn btn-sm btn-primary">修改</a>
-                        </div>
-                    </td>
-                </tr>
-            </table>
-            <!-- <div th:replace="page :: page"></div> -->
-            <div class="modal-footer no-margin-top">
-                <ul class="pagination pull-right no-margin">
-                </ul>
-            </div>
+                        <a style="color:#FFFFFF" th:href="@{/emp/delete/}+${e.eid}"
+                           class="btn btn-sm btn-danger deleteBtn">删除</a>&nbsp;
+                        <a style="color:#ffffff" th:href="@{/emp/toupdate/}+${e.eid}"
+                           class="btn btn-sm btn-primary">修改</a>
+        </div>
+        </td>
+        </tr>
+        </table>
+        <!-- <div th:replace="page :: page"></div> -->
+        <div class="modal-footer no-margin-top">
+            <ul class="pagination pull-right no-margin">
+            </ul>
         </div>
     </div>
-    <div id="footer">
-    </div>
+</div>
+<div id="footer">
+</div>
 </div>
 
-<form id="deleteForm" method="post">
-    <input type="hidden" name="_method" value="delete">
-</form>
 </body>
 </html>

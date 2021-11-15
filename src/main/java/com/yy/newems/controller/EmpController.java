@@ -58,5 +58,13 @@ public class EmpController {
         boolean result = iEmpService.addEmp(name, salary, age);
         return "redirect:/emp/findAll/";
     }
+
+    @PostMapping("/serch")
+    public String servh(String key, Model model) {
+        //System.out.println(key);
+        List<Emp> empList = iEmpService.findLikeName(key);
+        model.addAttribute("emplist", empList);
+        return "emplist";
+    }
 }
 

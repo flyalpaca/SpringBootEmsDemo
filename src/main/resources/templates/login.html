@@ -56,21 +56,15 @@
                 <span style="color:red;">[[${msg}]]</span>
                 <p>
                     <input type="submit" class="btn btn-sm btn-primary" value="登陆"/>
-                    <input type="button" class="btn btn-sm btn-default" disabled value="注册">
+                    <a style="color:#ffffff" th:href="@{/user/reg}" class="btn btn-sm btn-info">注册</a>
                 </p>
             </form>
         </div>
     </div>
     <div id="footer">
         <div id="footer_bg">
-            CHENGCAI@126.com
         </div>
     </div>
 </div>
-<script type="text/javascript">
-    function regist() {
-        window.location.href = "/user/toRegist";
-    }
-</script>
 </body>
 </html>

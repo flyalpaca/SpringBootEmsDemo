@@ -1,6 +1,7 @@
 package com.yy.newems.service.impl;
 
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.yy.newems.entity.Emp;
 import com.yy.newems.mapper.EmpMapper;
@@ -55,5 +56,13 @@ public class EmpServiceImpl extends ServiceImpl<EmpMapper, Emp> implements IEmpS
             return true;
         }
         return false;
+    }
+
+    @Override
+    public List<Emp> findLikeName(String key) {
+        QueryWrapper<Emp> qw = new QueryWrapper<>();
+        qw.like("ename",key);
+        List<Emp> empList = empMapper.selectList(qw);
+        return empList;
     }
 }

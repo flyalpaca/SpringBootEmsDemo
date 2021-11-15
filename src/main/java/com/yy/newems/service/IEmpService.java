@@ -14,4 +14,6 @@ public interface IEmpService extends IService<Emp> {
     boolean updateEmp(Integer id, String name, Double salary, Integer age);
 
     boolean addEmp(String name, Double salary, Integer age);
+
+    public List<Emp> findLikeName(String key);
 }
