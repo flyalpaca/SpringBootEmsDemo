@@ -29,4 +29,19 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
         return user;
     }
 
+    @Override
+    public boolean addUser(String username, String name, String pwd, String sex) {
+        User user = new User();
+        user.setUsername(username);
+        user.setRealname(name);
+        user.setPassword(pwd);
+        user.setGender(sex);
+
+        int res = userMapper.insert(user);
+        if(res>1){
+            return true;
+        }
+        return false;
+    }
+
 }

@@ -45,5 +45,19 @@ public class UserController {
 	public String regist(){
 		return "regist";
 	}
+	@PostMapping("/toreg")
+	public String toregist(String username,String name,String pwd,String sex,HttpServletRequest req){
+		//System.out.println(username);
+		boolean b = iUserService.addUser(username,name,pwd,sex);
+		if(!b) {
+			req.setAttribute("msg","注册成功，现在可以登录了");
+			return "login";
+		}
+		System.out.println("注册失败");
+		System.out.println(username+"_"+name+"_"+pwd+"_"+sex);
+		req.setAttribute("msg","注册失败，内部错误");
+		return "regist";
+
+	}
 }
 

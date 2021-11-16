@@ -21,7 +21,7 @@ public class MyInterception implements HandlerInterceptor {
         }
         //放行登陆请求
         if (path.equals("/user/toLogin") || path.equals("/user/login") ||
-                path.equals("/user/toRegist") || path.equals("/user/reg") || path.equals("/user/check") || path.equals("/user")) {
+                path.equals("/user/toreg") || path.equals("/user/reg") || path.equals("/")|| path.equals("/user/check") || path.equals("/user")) {
             return true;
         }
         //获取session中的username值
